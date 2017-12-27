@@ -144,6 +144,9 @@ private:
 	ofxHapPlayer video;
 	EFFECT* Effect;
 	
+	bool b_ShowCursor;
+	bool b_FullScreen;
+	
 public:
 	/****************************************
 	****************************************/

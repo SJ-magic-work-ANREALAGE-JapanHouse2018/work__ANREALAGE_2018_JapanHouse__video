@@ -6,10 +6,10 @@
 *	oF : 0.9.0
 
 ## add on ##
-ofxGui
-ofxHapPlayer
-ofxOsc
-ofxXmlSettings
+ofxGui  
+ofxHapPlayer  
+ofxOsc  
+ofxXmlSettings  
 
 ## Contents ##
 work__ANREALAGE_2018_JapanHouse__DetectClap からClap検出を意味するOSC messageを受け取ると、

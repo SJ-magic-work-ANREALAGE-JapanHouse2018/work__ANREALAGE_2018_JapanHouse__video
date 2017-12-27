@@ -11,6 +11,7 @@
 ofApp::ofApp()
 : Osc_ClapDetector("127.0.0.1", 12346, 12345)
 , Effect(EFFECT::getInstance())
+, b_FullScreen(false)
 {
 }
 
@@ -46,6 +47,14 @@ void ofApp::setup(){
 	
 	ofEnableSmoothing();
 	
+#ifdef SJ_RELEASE
+	ofHideCursor();
+	b_ShowCursor = false;
+#else
+	ofShowCursor();
+	b_ShowCursor = true;
+#endif
+
 	/********************
 	********************/
 	fbo_target.allocate(W_CONTENTS, H_CONTENTS, GL_RGBA);
@@ -109,7 +118,7 @@ void ofApp::draw(){
 	********************/
 	ofBackground(0);
 	ofSetColor(255);
-	fbo_target.draw(0, 0, W_MONITOR, H_MONITOR);
+	fbo_target.draw(0, 0, ofGetWidth(), ofGetHeight());
 }
 
 //--------------------------------------------------------------
@@ -119,8 +128,27 @@ void ofApp::keyPressed(int key){
 			Effect->Dice_Effect();
 			break;
 			
+		case 'f':
+			b_FullScreen = !b_FullScreen;
+			
+			if(b_FullScreen){
+				ofSetFullscreen(true);
+			}else{
+				ofSetFullscreen(false);
+				ofSetWindowShape(W_MONITOR, H_MONITOR);
+			}
+			break;
+		
 		case 'k':
 			video.setPosition(0.1);
+			break;
+			
+		case 'p':
+			b_ShowCursor = !b_ShowCursor;
+			
+			if(b_ShowCursor)	ofShowCursor();
+			else				ofHideCursor();
+
 			break;
 	}
 }
