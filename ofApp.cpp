@@ -35,6 +35,10 @@ void ofApp::exit(){
 void ofApp::setup(){
 	/********************
 	********************/
+	srand((unsigned) time(NULL));
+	
+	/********************
+	********************/
 	ofSetWindowTitle("ANREALAGE:Video");
 	ofSetVerticalSync(true);
 	ofSetFrameRate(60);
